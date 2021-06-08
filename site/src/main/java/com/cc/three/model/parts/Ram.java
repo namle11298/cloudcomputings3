@@ -1,0 +1,39 @@
+package com.cc.three.model.parts;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+
+/*
+ * 
+	"name": "Corsair Vengeance RGB Pro 16 GB",
+    "rating": 4,
+    "rating_count": 244,
+    "priceusd": 94.99,
+    "speed": "DDR4-3200",
+    "modules": "2 x 8GB",
+    "price/_gb": "$5.937",
+    "color": "Black",
+    "first_word_latency": "10 ns",
+    "cas_latency": "16"
+ */
+
+public class Ram extends PcPart {
+
+    @DynamoDBAttribute(attributeName = "speed")
+    private String speed;
+
+    @DynamoDBAttribute(attributeName = "modules")
+    private String modules;
+
+    @DynamoDBAttribute(attributeName = "price/_gb")
+    private String price_gb;
+
+    @DynamoDBAttribute(attributeName = "color")
+    private String color;
+
+    @DynamoDBAttribute(attributeName = "first_word_latency")
+    private String first_word_latency;
+    
+    @DynamoDBAttribute(attributeName = "cas_latency")
+    private String cas_latency;
+    
+}

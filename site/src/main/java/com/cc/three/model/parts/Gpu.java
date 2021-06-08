@@ -1,0 +1,38 @@
+package com.cc.three.model.parts;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+
+/*
+ * 
+	"name": "MSI D6 GAMING X",
+    "rating": 5,
+    "rating_count": 1,
+    "price_usd": 349.99,
+    "chipset": "GeForce GTX 1650",
+    "memory": "4 GB",
+    "core_clock": "1485 MHz",
+    "boost_clock": "1710 MHz",
+    "color": "Black",
+    "length": "245 mm"
+ */
+
+public class Gpu {
+
+    @DynamoDBAttribute(attributeName = "chipset")
+    private String chipset;
+
+    @DynamoDBAttribute(attributeName = "memory")
+    private String memory;
+
+    @DynamoDBAttribute(attributeName = "core_clock")
+    private String core_clock;
+
+    @DynamoDBAttribute(attributeName = "boost_clock")
+    private String boost_clock;
+
+    @DynamoDBAttribute(attributeName = "color")
+    private String color;
+
+    @DynamoDBAttribute(attributeName = "length")
+    private String length;
+}

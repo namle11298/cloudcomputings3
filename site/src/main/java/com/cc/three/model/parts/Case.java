@@ -1,0 +1,33 @@
+package com.cc.three.model.parts;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+
+/*
+ * "name": "NZXT H510",
+    "rating": 4,
+    "rating_count": 103,
+    "price_usd": 69.98,
+    "type": "ATX Mid Tower",
+    "color": "Black",
+    "power_supply": null,
+    "side_panel_window": "Tempered Glass",
+    "external_5.25"_bays": "0",
+    "internal_3.5"_bays": "2"
+ */
+
+public class Case extends PcPart {
+
+    @DynamoDBAttribute(attributeName = "type")
+    private String type;
+    @DynamoDBAttribute(attributeName = "color")
+    private String color;
+    @DynamoDBAttribute(attributeName = "power_supply")
+    private String power_supply;
+    @DynamoDBAttribute(attributeName = "side_panel_window")
+    private String side_panel_window;
+    @DynamoDBAttribute(attributeName = "external_5.25\"_bays")
+    private int external_525_bays;
+    @DynamoDBAttribute(attributeName = "internal_3.5\"_bays")
+    private int external_35_bays;
+	
+}
