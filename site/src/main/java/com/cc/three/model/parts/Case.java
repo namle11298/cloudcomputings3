@@ -1,6 +1,13 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /*
  * "name": "NZXT H510",
@@ -15,6 +22,12 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
     "internal_3.5"_bays": "2"
  */
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "case")
 public class Case extends PcPart {
 
     @DynamoDBAttribute(attributeName = "type")

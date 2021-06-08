@@ -27,7 +27,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@DynamoDBTable(tableName = "case")
+@DynamoDBTable(tableName = "casefan")
 public class CaseFan extends PcPart {
 
     @DynamoDBAttribute(attributeName = "size")

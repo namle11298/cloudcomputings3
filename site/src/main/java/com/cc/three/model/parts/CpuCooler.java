@@ -1,6 +1,13 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /*
  * "name": "Cooler Master Hyper 212 RGB Black Edition",
@@ -13,6 +20,12 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
     "radiator_size": null
  */
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "cpucooler")
 public class CpuCooler extends PcPart {
 
     @DynamoDBAttribute(attributeName = "fan_rpm")

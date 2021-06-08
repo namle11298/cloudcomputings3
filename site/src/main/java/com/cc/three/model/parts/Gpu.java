@@ -1,6 +1,13 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /*
  * 
@@ -16,6 +23,12 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
     "length": "245 mm"
  */
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "gpu")
 public class Gpu {
 
     @DynamoDBAttribute(attributeName = "chipset")

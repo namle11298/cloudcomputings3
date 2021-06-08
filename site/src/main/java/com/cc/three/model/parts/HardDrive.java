@@ -1,6 +1,13 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /*
  * 
@@ -16,6 +23,12 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
     "interface": "M.2 (M)"
  */
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@DynamoDBTable(tableName = "harddrive")
 public class HardDrive extends PcPart {
 
     @DynamoDBAttribute(attributeName = "capacity")
