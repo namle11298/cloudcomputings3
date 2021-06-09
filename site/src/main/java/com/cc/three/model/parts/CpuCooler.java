@@ -25,7 +25,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@DynamoDBTable(tableName = "cpucooler")
+@DynamoDBTable(tableName = "cpu_cooler")
 public class CpuCooler extends PcPart {
 
     @DynamoDBAttribute(attributeName = "fan_rpm")

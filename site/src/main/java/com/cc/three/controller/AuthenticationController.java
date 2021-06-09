@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,7 @@ public class AuthenticationController {
         this.userService = userService;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/login", produces = {"application/json"}, method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody Map<String, Object> payload) {
         try {
@@ -52,6 +54,7 @@ public class AuthenticationController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/register", produces = {"application/json"}, method = RequestMethod.POST)
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         try {

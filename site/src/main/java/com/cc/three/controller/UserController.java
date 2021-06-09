@@ -3,6 +3,7 @@ package com.cc.three.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,8 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    
+
+    @CrossOrigin
     @RequestMapping(value = "/users", produces = {"application/json"}, method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
@@ -37,6 +39,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/users/{userId}", produces = {"application/json"}, method = RequestMethod.GET)
     public ResponseEntity<User> readUser(@PathVariable String userId) {
         try {
@@ -49,6 +52,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/users", produces = {"application/json"}, method = RequestMethod.PUT)
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         try {
@@ -61,6 +65,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/users/{userId}", produces = {"application/json"}, method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable String userId) {
         try {
