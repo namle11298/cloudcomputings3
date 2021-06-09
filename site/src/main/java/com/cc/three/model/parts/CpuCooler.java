@@ -1,6 +1,7 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import lombok.AllArgsConstructor;
@@ -28,6 +29,9 @@ import lombok.Setter;
 @DynamoDBTable(tableName = "cpu_cooler")
 public class CpuCooler extends PcPart {
 
+    @DynamoDBHashKey(attributeName = "name")
+    private String name;
+    
     @DynamoDBAttribute(attributeName = "fan_rpm")
     private String fan_rpm;
     

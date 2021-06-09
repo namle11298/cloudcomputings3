@@ -1,6 +1,7 @@
 package com.cc.three.model.parts;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import lombok.AllArgsConstructor;
@@ -31,6 +32,8 @@ import lombok.Setter;
 @DynamoDBTable(tableName = "harddrive")
 public class HardDrive extends PcPart {
 
+    @DynamoDBHashKey(attributeName = "name")
+    private String name;
     @DynamoDBAttribute(attributeName = "capacity")
     private String capacity;
     @DynamoDBAttribute(attributeName = "price/_gb")

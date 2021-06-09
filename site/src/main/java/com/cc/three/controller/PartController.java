@@ -34,11 +34,10 @@ public class PartController {
     @CrossOrigin
     @RequestMapping(value = "/cpu/create", produces = {"application/json"}, method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody Map<String, Object> payload) throws ErrorMessage {
-    	Cpu cpu = new Cpu();
-    	cpu.setName("Test CPU");
-    	partService.create(cpu);
         try {
-        	return ResponseEntity.ok(partService.create(new Cpu()));
+        	Cpu cpu = new Cpu();
+        	cpu.setName("Test CPU");
+        	return ResponseEntity.ok(partService.create(cpu));
             /*User response = partService.readByEmail((String)payload.get("email"));
             if (response != null) {
             	if (response.getPassword().equalsIgnoreCase((String)payload.get("password"))) {
