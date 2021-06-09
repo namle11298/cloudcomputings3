@@ -42,8 +42,8 @@ public class Case extends PcPart {
     @DynamoDBAttribute(attributeName = "side_panel_window")
     private String side_panel_window;
     @DynamoDBAttribute(attributeName = "external_5.25\"_bays")
-    private int external_525_bays;
+    private String external_525_bays;
     @DynamoDBAttribute(attributeName = "internal_3.5\"_bays")
-    private int external_35_bays;
+    private String external_35_bays;
 	
 }

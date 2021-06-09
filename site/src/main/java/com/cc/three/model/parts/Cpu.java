@@ -36,7 +36,7 @@ public class Cpu extends PcPart {
     private String name;
     
     @DynamoDBAttribute(attributeName = "core_count")
-    private int core_count;
+    private String core_count;
 
     @DynamoDBAttribute(attributeName = "core_clock")
     private String core_clock;

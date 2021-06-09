@@ -1,6 +1,7 @@
 package com.cc.three.components;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,12 @@ import org.springframework.stereotype.Component;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDeleteExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
+import com.amazonaws.services.dynamodbv2.model.Condition;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
+import com.cc.three.model.User;
 import com.cc.three.model.parts.PcPart;
 import com.cc.three.service.CrudService;
 
@@ -33,6 +38,14 @@ public class PartDao implements CrudService<PcPart> {
     @Override
     public PcPart read(String id) {
         return map.load(PcPart.class, id);
+    }
+
+    public <T> List<T> read(Class<T> classType, String id) {
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
+        scanExpression.addFilterCondition("name", new Condition()                                           
+           .withComparisonOperator(ComparisonOperator.CONTAINS)                                                
+           .withAttributeValueList(new AttributeValue().withS(id)));
+        return map.scan(classType, scanExpression);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.cc.three.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class PartService implements CrudService<PcPart> {
     @Override
     public PcPart read(String userId) {
         return partDao.read(userId);
+    }
+
+    public <T> List<T> read(Class<T> classType, String name) {
+    	return partDao.read(classType, name);
     }
 
     @Override

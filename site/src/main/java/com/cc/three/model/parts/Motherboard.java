@@ -43,7 +43,7 @@ public class Motherboard extends PcPart {
     private String memory_max;
     
     @DynamoDBAttribute(attributeName = "memory_slots")
-    private int memory_slots;
+    private String memory_slots;
     
     @DynamoDBAttribute(attributeName = "color")
     private String color;

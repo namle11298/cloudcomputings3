@@ -17,6 +17,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PcPart {
+
+    @DynamoDBHashKey(attributeName = "name")
+    private String name;
     
     @DynamoDBAttribute(attributeName = "rating")
     private String rating;

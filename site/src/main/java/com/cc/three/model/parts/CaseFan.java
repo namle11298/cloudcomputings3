@@ -49,7 +49,7 @@ public class CaseFan extends PcPart {
     private String noise_level;
 
     @DynamoDBAttribute(attributeName = "pwm")
-    private boolean pwm;
+    private String pwm;
     
     
 }
