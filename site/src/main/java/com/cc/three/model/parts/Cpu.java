@@ -53,7 +53,7 @@ public class Cpu extends PcPart {
     @DynamoDBAttribute(attributeName = "tdp")
     private String tdp;
 
-    @DynamoDBAttribute(attributeName = "integrated_graphics")
+    @DynamoDBAttribute(attributeName = "integrated_graphic")
     private String integrated_graphics;
 
     @DynamoDBAttribute(attributeName = "smt")
