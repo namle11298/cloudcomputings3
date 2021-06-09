@@ -34,6 +34,12 @@ public class Cpu extends PcPart {
 
     @DynamoDBHashKey(attributeName = "name")
     private String name;
+    @DynamoDBAttribute(attributeName = "rating")
+    private int rating;
+    @DynamoDBAttribute(attributeName = "rating_count")
+    private int rating_count;
+    @DynamoDBAttribute(attributeName = "price_usd")
+    private Float price_usd;
     
     @DynamoDBAttribute(attributeName = "core_count")
     private String core_count;

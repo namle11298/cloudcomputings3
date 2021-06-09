@@ -33,18 +33,20 @@ public class Motherboard extends PcPart {
 
     @DynamoDBHashKey(attributeName = "name")
     private String name;
-    @DynamoDBAttribute(attributeName = "socket/_cpu")
+    @DynamoDBAttribute(attributeName = "rating")
+    private int rating;
+    @DynamoDBAttribute(attributeName = "rating_count")
+    private int rating_count;
+    @DynamoDBAttribute(attributeName = "price_usd")
+    private Float price_usd;
+    @DynamoDBAttribute(attributeName = "socket")
     private String socket_cpu;
-
     @DynamoDBAttribute(attributeName = "form_factor")
     private String form_factor;
-    
     @DynamoDBAttribute(attributeName = "memory_max")
     private String memory_max;
-    
     @DynamoDBAttribute(attributeName = "memory_slots")
     private String memory_slots;
-    
     @DynamoDBAttribute(attributeName = "color")
     private String color;
 }

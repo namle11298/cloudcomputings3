@@ -34,16 +34,20 @@ public class HardDrive extends PcPart {
 
     @DynamoDBHashKey(attributeName = "name")
     private String name;
+    @DynamoDBAttribute(attributeName = "rating")
+    private int rating;
+    @DynamoDBAttribute(attributeName = "rating_count")
+    private int rating_count;
+    @DynamoDBAttribute(attributeName = "price_usd")
+    private Float price_usd;
     @DynamoDBAttribute(attributeName = "capacity")
     private String capacity;
-    @DynamoDBAttribute(attributeName = "price/_gb")
+    @DynamoDBAttribute(attributeName = "price_/_gb")
     private String price_gb;
+    @DynamoDBAttribute(attributeName = "color")
+    private String color;
     @DynamoDBAttribute(attributeName = "type")
     private String type;
-    @DynamoDBAttribute(attributeName = "cache")
-    private String cache;
-    @DynamoDBAttribute(attributeName = "form_factor")
-    private String form_factor;
     @DynamoDBAttribute(attributeName = "interface")
     private String interface_type;
     

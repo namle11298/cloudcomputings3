@@ -34,22 +34,22 @@ public class Ram extends PcPart {
 
     @DynamoDBHashKey(attributeName = "name")
     private String name;
-    
+    @DynamoDBAttribute(attributeName = "rating")
+    private int rating;
+    @DynamoDBAttribute(attributeName = "rating_count")
+    private int rating_count;
+    @DynamoDBAttribute(attributeName = "price_usd")
+    private Float price_usd;
     @DynamoDBAttribute(attributeName = "speed")
     private String speed;
-
     @DynamoDBAttribute(attributeName = "modules")
     private String modules;
-
-    @DynamoDBAttribute(attributeName = "price/_gb")
+    @DynamoDBAttribute(attributeName = "price_/_gb")
     private String price_gb;
-
     @DynamoDBAttribute(attributeName = "color")
     private String color;
-
     @DynamoDBAttribute(attributeName = "first_word_latency")
     private String first_word_latency;
-    
     @DynamoDBAttribute(attributeName = "cas_latency")
     private String cas_latency;
     

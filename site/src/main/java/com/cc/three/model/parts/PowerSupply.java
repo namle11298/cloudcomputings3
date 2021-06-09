@@ -33,19 +33,20 @@ public class PowerSupply extends PcPart {
 
     @DynamoDBHashKey(attributeName = "name")
     private String name;
-    
+    @DynamoDBAttribute(attributeName = "rating")
+    private int rating;
+    @DynamoDBAttribute(attributeName = "rating_count")
+    private int rating_count;
+    @DynamoDBAttribute(attributeName = "price_usd")
+    private Float price_usd;
     @DynamoDBAttribute(attributeName = "form_factor")
     private String form_factor;
-    
     @DynamoDBAttribute(attributeName = "efficiency_rating")
     private String efficiency_rating;
-    
     @DynamoDBAttribute(attributeName = "wattage")
     private String wattage;
-
     @DynamoDBAttribute(attributeName = "modular")
     private String modular;
-    
     @DynamoDBAttribute(attributeName = "color")
     private String color;
     
