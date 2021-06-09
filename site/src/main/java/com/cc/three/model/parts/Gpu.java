@@ -29,7 +29,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@DynamoDBTable(tableName = "gpu")
+@DynamoDBTable(tableName = "videocard")
 public class Gpu {
 
     @DynamoDBHashKey(attributeName = "name")
