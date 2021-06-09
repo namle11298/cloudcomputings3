@@ -15,55 +15,55 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
 import com.amazonaws.services.dynamodbv2.model.Condition;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
-import com.cc.three.model.parts.PcPart;
+import com.cc.three.model.ConfigurationParts;
 import com.cc.three.service.CrudService;
 
 @Component
-public class PartDao implements CrudService<PcPart> {
+public class ConfigurationDao implements CrudService<ConfigurationParts> {
 
     private DynamoDBMapper map;
 
     @Autowired
-    public PartDao(DynamoDBMapper dynamoDBMapper) {
+    public ConfigurationDao(DynamoDBMapper dynamoDBMapper) {
         this.map = dynamoDBMapper;
     }
 
     @Override
-    public PcPart create(PcPart part) {
+    public ConfigurationParts create(ConfigurationParts part) {
         map.save(part);
         return part;
     }
 
     @Override
-    public PcPart read(String id) {
-        return map.load(PcPart.class, id);
+    public ConfigurationParts read(String buildId) {
+        return map.load(ConfigurationParts.class, buildId);
     }
-
-    public <T> List<T> read(Class<T> classType, String id) {
+    
+    public List<ConfigurationParts> scanForUser(String userId) {
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
-        scanExpression.addFilterCondition("name", new Condition()                                           
-           .withComparisonOperator(ComparisonOperator.CONTAINS)                                                
-           .withAttributeValueList(new AttributeValue().withS(id)));
-        return map.scan(classType, scanExpression);
+        scanExpression.addFilterCondition("userId", new Condition()                                           
+           .withComparisonOperator(ComparisonOperator.EQ)                                                
+           .withAttributeValueList(new AttributeValue().withS(userId)));
+        List<ConfigurationParts> results = map.scan(ConfigurationParts.class, scanExpression);
+    	return results;
     }
 
     @Override
-    public PcPart update(PcPart part) {
+    public ConfigurationParts update(ConfigurationParts build) {
         Map<String, ExpectedAttributeValue> expectedAttributeValueMap = new HashMap<>();
-        expectedAttributeValueMap.put("name", new ExpectedAttributeValue(new AttributeValue().withS(part.getName())));
+        expectedAttributeValueMap.put("buildId", new ExpectedAttributeValue(new AttributeValue().withS(build.getBuildId())));
         DynamoDBSaveExpression saveExpression = new DynamoDBSaveExpression().withExpected(expectedAttributeValueMap);
-        map.save(part, saveExpression);
-        return part;
+        map.save(build, saveExpression);
+        return build;
     }
 
     @Override
-    public void delete(String name) {
+    public void delete(String buildId) {
         Map<String, ExpectedAttributeValue> expectedAttributeValueMap = new HashMap<>();
-        expectedAttributeValueMap.put("name", new ExpectedAttributeValue(new AttributeValue().withS(name)));
+        expectedAttributeValueMap.put("buildId", new ExpectedAttributeValue(new AttributeValue().withS(buildId)));
         DynamoDBDeleteExpression deleteExpression = new DynamoDBDeleteExpression().withExpected(expectedAttributeValueMap);
-        PcPart part = new PcPart();
-        part.setName(name);
-        map.delete(part, deleteExpression);
+        ConfigurationParts user = ConfigurationParts.builder().buildId(buildId).build();
+        map.delete(user, deleteExpression);
     }
-
+    
 }
